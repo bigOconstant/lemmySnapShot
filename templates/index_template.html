@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+
+    <title>{{ .Name }}</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  </head>
+  <body>
+  <section class="section">
+    <div class="container">
+     
+     
+
+          <div class="container has-text-centered">
+            <h1 class="title">
+              <img width="44" src="{{ .Icon }}">  {{.Name}}
+           </h1>
+          </div>
+
+         <div class="columns has-text-centered">
+          <div class="column is-full">
+            <p class="subtitle">
+              {{ .Description }}
+            </p>
+         </div>
+        </div>
+
+        <div class="columns has-text-centered">
+          <div class="column is-full">
+            <a class="subtitle is-6" href="{{ .SiteUrl }}/signup">
+              Join our community today.
+            </a>
+         </div>
+        </div>
+        
+        <div class="card">
+          
+          <div class="card-content">
+            <div class="media">
+              {{ if .IsNotNull .TopPost.PostThumbNail }} 
+              <div class="media-left">
+                <figure class="image is-48x48">
+                  <img src="{{.TopPost.PostThumbNail.String}}" >
+                </figure>
+                </div>
+              {{ end }}
+             
+              <div class="media-content">
+                <p class="title is-4">{{.TopPost.PostName}}</p>
+                <p class="subtitle is-6"></p>
+              </div>
+            </div>
+        
+            <div class="content">
+              <a class="subtitle is-6 danger" style="color: #da1039;" href="{{ .SiteUrl }}/post/{{ .TopPost.PostId }}">
+                Read More
+              </a>
+            </div>
+          </div>
+        </div>
+      
+    </div>
+  </section>
+  </body>
+</html>
